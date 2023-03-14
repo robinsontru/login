@@ -19,7 +19,7 @@ app.use(express.json())
 dotenv.config({path:'./env/.env'})
 
 //las cookis
-//app.use(cookieparser)
+app.use(cookieparser())
 
 //llamar las routers
 app.use('/',require('./router/router.js'))
@@ -28,6 +28,12 @@ app.use('/',require('./router/router.js'))
 // app.get('/',(req,res)=>{
 //  res.render('index')
 // })
+
+app.use(function(req,res,next){
+    if(!req.user)
+    res.header('cache-control','private, no create ,no-store, must-revalate');
+    next()
+})
 
 app.listen(4000 ,()=>{
     console.log('EL SERVICIO SE ESTA COORIENDO EN EL PUERTO http://localhost:4000');

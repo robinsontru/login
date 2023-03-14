@@ -6,14 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
-    <title>index con node js </title>
-
-
-
-    
-
-    
-
+    <title>index con node js </title>   
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -84,8 +77,9 @@
   <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3  " href="#">Sign out</a>
-    </div>
+      <a class="nav-link px-3  " href="/login">Sign out</a>
+    >
+      </div>
   </div>
 </header>
 
@@ -99,6 +93,12 @@
               <span data-feather="home" class="align-text-bottom"></span>
               Dashboard
             </a>
+            <h2>
+              bienvenido
+              <% if (user) { %>
+                <span class="badge hg-success"><%= user.name %></span>
+                <%  }%>
+            </h2>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
